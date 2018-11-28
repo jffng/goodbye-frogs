@@ -112,7 +112,7 @@ class Snowglobe extends Component{
     //ADD CAMERA
     //ADD RENDERER
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
-    this.renderer.setSize(Math.min(1400, window.innerWidth), window.innerHeight);
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
 		// this.renderer.setClearColor(0x114457, .1);
     this.mount.appendChild(this.renderer.domElement);
 		const FOV = 2 * Math.atan( window.innerHeight / ( 2 * distance ) ) * 90 / Math.PI;
@@ -125,7 +125,7 @@ class Snowglobe extends Component{
     const onWindowResize = () => {
 			this.camera.aspect = window.innerWidth / window.innerHeight;
 			this.camera.updateProjectionMatrix();
-      this.renderer.setSize( Math.min(1400, window.innerWidth), window.innerHeight );
+      this.renderer.setSize( window.innerWidth, window.innerHeight );
 		}
 		window.addEventListener( 'resize', onWindowResize, false );
 
