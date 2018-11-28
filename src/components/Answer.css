@@ -1,0 +1,98 @@
+:global a {
+  color: yellow;
+  z-index: 100000;
+}
+
+:global a:hover {
+  opacity: .5;
+}
+
+.perspective {
+  position: fixed;
+  width: 80%;
+  left: 10%;
+  top: 70px;
+  bottom: 70px;
+  height: calc(100% - 140px);
+  display: table;
+  z-index: 1000;
+}
+
+.tilter {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.standard {
+  font-size: 3.5vw;
+  line-height: 1.15em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+
+@keyframes :global(costar) {
+  0% { opacity: 1.0;  }
+  50% { opacity: 0.0;  }
+  100% { opacity: 1.0;  }
+}
+
+:global .costar {
+  background-size: cover; 
+  width: 160px; 
+  height: 160px; 
+  display: inline-block;
+}
+
+:global .exploded {
+  display: inline-block;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	 -khtml-user-select: none; /* Konqueror HTML */
+		 -moz-user-select: none; /* Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+					user-select: none; /* Non-prefixed version, currently
+																supported by Chrome and Opera */
+}
+
+:global .costar:hover {
+  animation: costar .9s linear infinite;
+  -webkit-animation: costar .9s linear infinite;
+}
+
+
+@media (max-width: 720px) {
+  .standard {
+    font-size: 22px;
+  }
+
+  :global h1 {
+    font-size: 18px;
+  }
+
+  :global .costar {
+    animation: costar 1.5s linear infinite;
+    -webkit-animation: costar 1.5 linear infinite;
+  }
+}
+
+:global .dot.active {
+  background: transparent;
+}
+
+:global .dot {
+  border: 1px solid white;
+  margin-right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  display: inline-block;
+}
+
+.dots {
+  margin-top: 12px;
+  display: block;
+}
