@@ -93,8 +93,6 @@ const Explosion = (scene, x,y) => {
 
 class Snowglobe extends Component{
   componentDidMount(){
-    // this.width = this.mount.clientWidth
-    // this.height = this.mount.clientHeight
 		this.width = 2000;
 		this.height = 2000;
 		this.depth = 2000;
@@ -102,19 +100,18 @@ class Snowglobe extends Component{
 		var distance = 200;
 		this.flakes = [];
 		this.flakeCount = 1000;
-		//Noise field zoom
-		//Camera rotate
 		var rotate = true;
     //ADD SCENE
     this.scene = new THREE.Scene();
     this.parts = [];
 
-    //ADD CAMERA
     //ADD RENDERER
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
 		// this.renderer.setClearColor(0x114457, .1);
     this.mount.appendChild(this.renderer.domElement);
+    
+    //ADD CAMERA
 		const FOV = 2 * Math.atan( window.innerHeight / ( 2 * distance ) ) * 90 / Math.PI;
 		this.camera = new THREE.PerspectiveCamera(FOV, window.innerWidth / window.innerHeight, 1, 20000);
 		this.camera.up.set(0,0,1);

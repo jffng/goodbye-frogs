@@ -4,6 +4,7 @@ import Vertical from './components/Vertical';
 import Horizontal from './components/Horizontal';
 import Answer from './components/Answer';
 import CSSModules from 'react-css-modules';
+import { isMobile } from 'react-device-detect';
 
 const QUESTIONS = [
   "What's happening?",
@@ -43,21 +44,24 @@ class App extends Component {
 
   _onTouchStart(e){
     // console.log(e.touches);
-    this.setState({
-      x: e.touches[0].pageX,
-      y: e.touches[0].pageY
-    });
+    if (isMobile){
+      this.setState({
+        x: e.touches[0].pageX,
+        y: e.touches[0].pageY
+      });
+    }
   }
 
   _onMouseMove(e){
-    this.setState({
-      x: e.pageX,
-      y: e.pageY
-    });
+    if (!isMobile){
+      this.setState({
+        x: e.pageX,
+        y: e.pageY
+      });
+    }
   }
 
   prev(e){
-    e.preventDefault();
     if (this.state.index > 0){
       this.setState({
         index: this.state.index - 1
@@ -70,7 +74,6 @@ class App extends Component {
   }
 
   next(e){
-    e.preventDefault();
     if (this.state.index === ANSWERS.length - 1){
       this.setState({
         index: 0
@@ -80,8 +83,6 @@ class App extends Component {
         index: this.state.index + 1
       });
     }
-
-    this.answerRef.current.render();
   }
   
   render() {
@@ -91,8 +92,8 @@ class App extends Component {
         <Vertical x={x} />
         <Horizontal y={y} />
         <Answer length={ANSWERS.length} q={QUESTIONS[this.state.index]} a={ANSWERS[this.state.index]} x={x} y={y} index={index} ref={this.answerRef}/>
-        <div onTouchEnd={this.prev} onClick={this.prev} styleName="previous">Previous</div>
-        <div onTouchEnd={this.next} onClick={this.next} styleName="next">Next</div>
+        <div onClick={this.prev} styleName="previous">Previous</div>
+        <div onClick={this.next} styleName="next">Next</div>
       </div>
     );
   }
