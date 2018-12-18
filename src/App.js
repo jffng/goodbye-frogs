@@ -22,7 +22,7 @@ const QUESTIONS = [
 const ANSWERS = [
   "I (Jeff Ong) am leaving frog, and I made a website to tell you / deal with my feelings",
   'A company called Automattic — they are the primary custodian of Wordpress, among other Internet-related tools',
-  'To work with John Maeda among others bringing shape to an idea they call "computational design"',
+  'To help bring shape to an idea they call "computational design"',
   'The entire company works remotely, so it will be easier to spend time with my family and pursue my dreamz',
   'Extremely',
   'Sort of, I\'ll be in and out of the area, so please still invite me to your parties, bat / bar mitzvahs, seances, etc',
